@@ -5,16 +5,16 @@ mongoClient.connect(url, { useUnifiedTopology: true })
   .then(conn => global.conn = conn.db("jobsity-test"))
   .catch(err => console.log(err))
 
-function getUser(username, password) {
-  return global.conn.collection("users").find(x => x.username == username && x.password == paswword).toArray();
+function getUser(username) {
+  return global.conn.collection('users').findOne({ 'username': username });
 }
 
 function getAllUser() {
-  return global.conn.collection("users").find().toArray();
+  return global.conn.collection('users').find().toArray();
 }
 
 function insertUser(user) {
-  return global.conn.collection("users").insertOne(user);
+  return global.conn.collection('users').insertOne(user);
 }
 
 module.exports = {
