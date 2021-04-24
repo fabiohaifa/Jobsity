@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-global.db = require('../data/mongo.js');
+global.db = require('../config/mongo.js');
 var app = require('../app');
 var debug = require('debug')('jobsity-test:server');
 var http = require('http');
@@ -76,10 +76,11 @@ function onError(error) {
 
 var io = require('socket.io')(server);
 io.on('connection', function(socket) {
-  console.log('a user connected');
+  const user = { 'username': '' }; /*socket.request.session.user;*/
+  console.log('user ' + user.username + ' is connected');
   socket.on('chat message', function(msg) {
     console.log('message: ' + msg);
-    io.emit('chat message', msg);
+    io.emit('chat message', 'User: ' + user.username + ' --> ' + msg);
   });
 
   socket.on('disconnect', function() {
