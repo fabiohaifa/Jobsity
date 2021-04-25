@@ -7,8 +7,9 @@ module.exports = function(app, passport) {
     res.render('login.ejs', { message: req.flash('loginMessage') });
   });
 
-  app.get('/chat', isLoggedIn, function(req, res) {
-    res.render('chat.ejs', { message: req.flash('loginMessage') });
+  app.get('/chat', isLoggedIn, async function(req, res) {
+    const messages = await global.db.getAllMessages();
+    res.render('chat.ejs', { title: 'Chat', messages, username: req.user.username });
   });
 
   app.post('/login', passport.authenticate('local', {

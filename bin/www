@@ -1,55 +1,34 @@
-#!/usr/bin/env node
-
-/**
- * Module dependencies.
- */
+const session = require("express-session");
+const passport = require("passport");
 
 global.db = require('../config/mongo.js');
 var app = require('../app');
 var debug = require('debug')('jobsity-test:server');
 var http = require('http');
 
-/**
- * Get port from environment and store in Express.
- */
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
 var server = http.createServer(app);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
-/**
- * Normalize a port into a number, string, or false.
- */
 
 function normalizePort(val) {
   var port = parseInt(val, 10);
 
   if (isNaN(port)) {
-    // named pipe
     return val;
   }
 
   if (port >= 0) {
-    // port number
     return port;
   }
 
   return false;
 }
 
-/**
- * Event listener for HTTP server "error" event.
- */
 function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
@@ -59,7 +38,6 @@ function onError(error) {
     'Pipe ' + port :
     'Port ' + port;
 
-  // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges');
@@ -75,12 +53,25 @@ function onError(error) {
 }
 
 var io = require('socket.io')(server);
+
+const wrap = middleware => (socket, next) => middleware(socket.request, {}, next);
+io.use(wrap(session({ secret: "jobsity-test" })));
+io.use(wrap(passport.initialize()));
+io.use(wrap(passport.session()));
+
 io.on('connection', function(socket) {
-  const user = { 'username': '' }; /*socket.request.session.user;*/
-  console.log('user ' + user.username + ' is connected');
-  socket.on('chat message', function(msg) {
-    console.log('message: ' + msg);
-    io.emit('chat message', 'User: ' + user.username + ' --> ' + msg);
+
+  socket.on('whoami', (cb) => {
+    cb(socket.request.user ? socket.request.user.username : '');
+  });
+
+  console.log('someone connected');
+  socket.on('chat message', function(user, msg) {
+    console.log(Date.now().toString() + user + ' says: ' + msg);
+    const msgDate = new Date();
+    const composeMessage = msgDate.toISOString().replace(/T/, ' ').replace(/\..+/, '') + ' ' + user + ' says: ' + msg;
+    global.db.saveMessage(msgDate, user, msg, composeMessage);
+    io.emit('chat message', composeMessage);
   });
 
   socket.on('disconnect', function() {

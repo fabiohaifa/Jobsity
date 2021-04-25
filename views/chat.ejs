@@ -53,9 +53,16 @@
 </head>
 
 <body>
-    <ul id="messages"></ul>
+    <ul id="messages">
+        <% messages.forEach(function(messages){ %>
+            <li>
+                <%= messages.composeMessage %>
+            </li>
+            <% }) %>
+    </ul>
     <form action="">
         <input id="m" autocomplete="off" /><button>Send</button>
+        <input type="hidden" id="u" value="<%=username%>" />
     </form>
 </body>
 
@@ -65,7 +72,7 @@
     $(function() {
         var socket = io();
         $('form').submit(function() {
-            socket.emit('chat message', $('#m').val());
+            socket.emit('chat message', $("#u").val(), $('#m').val());
             $('#m').val('');
             return false;
         });
