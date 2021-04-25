@@ -59,6 +59,8 @@ io.use(wrap(session({ secret: "jobsity-test" })));
 io.use(wrap(passport.initialize()));
 io.use(wrap(passport.session()));
 
+app.set('socketIo', io);
+
 io.on('connection', function(socket) {
 
   socket.on('whoami', (cb) => {
