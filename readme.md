@@ -45,7 +45,7 @@ http://localhost:3000/
 
 If you click on the 'starting chat' link you will be asked for authenticate yourself.
 
-For login into the system use on of bellow credentials:
+For login into the system use one of credentials bellow:
 ```
 Username: user1 
 Password: 123
