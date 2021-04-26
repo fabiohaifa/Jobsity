@@ -2,7 +2,6 @@
 
 const httpStatus = require('http-status');
 const HTTPStatus = require('http-status');
-const _ = require('lodash');
 const bot = require('../../../config/bot.js');
 const business = require('./stockmarket-business.js');
 

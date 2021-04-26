@@ -14,11 +14,11 @@ apt-get install nodejs
 ```
 
 Docker - run with elevated previleges:
-** For more information: https://docs.docker.com/engine/install/
 ```bash
 apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io
 ```
+For more information: https://docs.docker.com/engine/install/
 
 MongoDB - Docker image:
 ```bash
@@ -47,23 +47,43 @@ If you click on the 'starting chat' link you will be asked for authenticate your
 
 Use:
 
-Username: user1
-Password: 123
+**Username:** user1
+**Password:** 123
 
-Username: user2
-Password: 321
+**Username:** user2
+**Password:** 321
 
-Both users was inserted into database after first time use of this app.
+Both users will be inserted into database after first time use of this app.
 
 To use the bot services you will need start the message with the '/' character.
 
 List of all commands avaliable for bot interaction:
 
-* /stock=</i>{CODE}</i>
+*/stock={CODE}*
 
-When: {CODE} is the stock market share code like: AMZN.US or AAPL.US
+*{CODE}* is the stock market share code like: **AMZN.US** or **AAPL.US**
 
 The bot will write - just for you - the value of the stock market share after last day close!
+
+## Technical Approach
+
+### Docker & MongoDB ###
+NoSQL Database to store users and messages running in a docker for easy cloud deploy
+[Docker](https://www.docker.com/)
+[MongoDB](https://www.mongodb.com/2)
+
+### NodeJS Express ###
+Framework to provide web structure to create a web-chat
+[NomeJS Express](https://expressjs.com/)
+
+### Socket.IO ###
+Socket.IO provide and fast and real-time bi-directional for chat communications
+[Socket.IO](https://socket.io/)
+
+### Passport & BCrypt ###
+Passport for authentication and BCrypt for hash encryption of user's password
+[Passport](http://www.passportjs.org/)
+[BCrypt](http://www.passportjs.org/)
 
 ## License
 Use only for Jobsity challenge purpouses.

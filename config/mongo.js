@@ -11,7 +11,7 @@ function getUser(username) {
 
 function saveMessage(msgDate, user, message, composeMessage) {
   const messageIns = {
-    message_date: msgDate,
+    messageDate: msgDate,
     username: user,
     message: message,
     composeMessage: composeMessage
@@ -20,7 +20,7 @@ function saveMessage(msgDate, user, message, composeMessage) {
 }
 
 function getAllMessages() {
-  return global.conn.collection('messages').find().sort({ message_date: 1 }).toArray();
+  return global.conn.collection('messages').find().sort({ messageDate: 1 }).limit(50).toArray();
 }
 
 function getAllUser() {
