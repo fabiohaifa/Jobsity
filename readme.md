@@ -6,7 +6,7 @@ This is a project only for Jobsity challenge purpouses. Do not copy/paste it!
 
 ## Installation
 
-NodeJS - run with elevated previleges:
+NodeJS v10.15.3:
 
 ```bash
 apt-get update

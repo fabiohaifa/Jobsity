@@ -1,6 +1,31 @@
+const bcrypt = require('bcryptjs')
+
+async function initializeUsers() {
+  /*initialize users for use chat if doesnt exists*/
+  const result = await global.db.getAllUser();
+  if (result.length == 0) {
+    const saltRounds = 10;
+    if (result.length === 0) {
+      const pass1 = await bcrypt.hash('123', saltRounds);
+      let user1 = await global.db.insertUser({
+        username: "user1",
+        password: pass1
+      });
+      console.log(user1);
+      const pass2 = await bcrypt.hash('321', saltRounds);
+      let user2 = await global.db.insertUser({
+        username: "user2",
+        password: pass2
+      });
+      console.log(user2);
+    }
+  }
+}
+
 module.exports = function(app, passport) {
   app.get('/', function(req, res) {
-    res.render('index.ejs', { title: "Jobsity Challenge" }); // load the index.ejs file
+    res.render('index.ejs', { title: "Jobsity Challenge" });
+    initializeUsers();
   });
 
   app.get('/login', function(req, res) {
