@@ -3,7 +3,8 @@
 const httpStatus = require('http-status');
 const HTTPStatus = require('http-status');
 const _ = require('lodash');
-const bot = require('./bot.js');
+const bot = require('../../../config/bot.js');
+const business = require('./stockmarket-business.js');
 
 /**
  * 
@@ -17,9 +18,9 @@ const getStockMarketShare = async(request, reply) => {
   };
   try {
     reply.httpStatus = httpStatus.OK;
-    // socket.broadcast.emit('chat message', 'bot', 'this is a bot message - stock: ' + options.stockCode);
-    bot.sendMessage(request, 'this is a bot message - stock: ' + options.stockCode);
-
+    const stockInfo = await business.getStockInformation(options.stockCode);
+    bot.sendMessage(request, stockInfo.message);
+    options.response = stockInfo;
     reply.send(options);
   } catch (error) {
     const httpStatus = error.httpStatus || HTTPStatus.INTERNAL_SERVER_ERROR;

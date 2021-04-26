@@ -1,10 +1,10 @@
 const session = require("express-session");
 const passport = require("passport");
-
 global.db = require('../config/mongo.js');
 var app = require('../app');
 var debug = require('debug')('jobsity-test:server');
 var http = require('http');
+const bot = require('../config/bot.js');
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
@@ -69,11 +69,15 @@ io.on('connection', function(socket) {
 
   console.log('someone connected');
   socket.on('chat message', function(user, msg) {
-    console.log(Date.now().toString() + user + ' says: ' + msg);
-    const msgDate = new Date();
-    const composeMessage = msgDate.toISOString().replace(/T/, ' ').replace(/\..+/, '') + ' ' + user + ' says: ' + msg;
-    global.db.saveMessage(msgDate, user, msg, composeMessage);
-    io.emit('chat message', composeMessage);
+    if (msg[0] === '/') {
+      bot.validatebotMessage(io, msg);
+    } else {
+      console.log(Date.now().toString() + user + ' says: ' + msg);
+      const msgDate = new Date();
+      const composeMessage = msgDate.toISOString().replace(/T/, ' ').replace(/\..+/, '') + ' ' + user + ' says: ' + msg;
+      global.db.saveMessage(msgDate, user, msg, composeMessage);
+      io.emit('chat message', composeMessage);
+    }
   });
 
   socket.on('disconnect', function() {
