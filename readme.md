@@ -25,25 +25,43 @@ docker run --name database -d -p 27017:27017 mongo --noauth --bind_ip=0.0.0.0
 docker start mongodb
 ```
 
-Project Dependencies - root project dir:
+Install all Project Dependencies:
 ```bash
 npm install
 ```
 
-## Usage
-
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
+Starting the server:
+```bash
+npm start
 ```
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## Usage
 
-Please make sure to update tests as appropriate.
+Open a new browser tab and got to the follow address:
+
+http://localhost:3000/
+
+If you click on the 'starting chat' link you will be asked for authenticate yourself.
+
+Use:
+
+Username: user1
+Password: 123
+
+Username: user2
+Password: 321
+
+Both users was inserted into database after first time use of this app.
+
+To use the bot services you will need start the message with the '/' character.
+
+List of all commands avaliable for bot interaction:
+
+* /stock=</i>{CODE}</i>
+
+When: {CODE} is the stock market share code like: AMZN.US or AAPL.US
+
+The bot will write - just for you - the value of the stock market share after last day close!
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+Use only for Jobsity challenge purpouses.
