@@ -2,6 +2,8 @@
 
 This is a project only for Jobsity challenge purpouses. Do not copy/paste it!
 
+![Badge](https://img.shields.io/badge/Jobsity-Challenge-%237159c1?style=for-the-badge&logo=ghost)
+
 ## Installation
 
 NodeJS - run with elevated previleges:
@@ -65,3 +67,6 @@ The bot will write - just for you - the value of the stock market share after la
 
 ## License
 Use only for Jobsity challenge purpouses.
+
+## Author
+Fabio Pirani de Padua (https://www.linkedin.com/in/fabio-pirani-b129539/)
