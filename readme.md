@@ -61,8 +61,7 @@ To use the bot services you will need start the message with the '/' character.
 List of all commands avaliable for bot interaction:
 
 */stock={CODE}*
-
-*{CODE}* is the stock market share code like: **AMZN.US** or **AAPL.US**
+> *{CODE}* is the stock market share code like: **AMZN.US** or **AAPL.US**
 
 The bot will write the value of the stock market share after last day close! All bot responses will not storage in the database
 
@@ -70,21 +69,21 @@ The bot will write the value of the stock market share after last day close! All
 
 ### Docker & MongoDB ###
 NoSQL Database to store users and messages running in a docker for easy cloud deploy
-[Docker](https://www.docker.com/)
-[MongoDB](https://www.mongodb.com/2)
+> [Docker](https://www.docker.com/)
+> [MongoDB](https://www.mongodb.com/2)
 
 ### NodeJS Express ###
 Framework to provide web structure to create a web-chat
-[NomeJS Express](https://expressjs.com/)
+> [NomeJS Express](https://expressjs.com/)
 
 ### Socket.IO ###
 Socket.IO provide and fast and real-time bi-directional for chat communications
-[Socket.IO](https://socket.io/)
+> [Socket.IO](https://socket.io/)
 
 ### Passport & BCrypt ###
 Passport for authentication and BCrypt for hash encryption of user's password
-[Passport](http://www.passportjs.org/)
-[BCrypt](http://www.passportjs.org/)
+> [Passport](http://www.passportjs.org/)
+> [BCrypt](http://www.passportjs.org/)
 
 ## License
 Use only for Jobsity challenge purpouses.
