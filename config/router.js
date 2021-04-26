@@ -1,7 +1,6 @@
 const bcrypt = require('bcryptjs')
 
 async function initializeUsers() {
-  /*initialize users for use chat if doesnt exists*/
   const result = await global.db.getAllUser();
   if (result.length == 0) {
     const saltRounds = 10;

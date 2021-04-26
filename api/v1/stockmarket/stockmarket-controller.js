@@ -6,11 +6,6 @@ const _ = require('lodash');
 const bot = require('../../../config/bot.js');
 const business = require('./stockmarket-business.js');
 
-/**
- * 
- * @param {*} request 
- * @param {*} reply 
- */
 const getStockMarketShare = async(request, reply) => {
   const options = {
     stockCode: request.params.stockCode,
