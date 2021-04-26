@@ -45,13 +45,14 @@ http://localhost:3000/
 
 If you click on the 'starting chat' link you will be asked for authenticate yourself.
 
-Use:
+For login into the system use on of bellow credentials:
+```
+Username: user1 
+Password: 123
 
-**Username:** user1
-**Password:** 123
-
-**Username:** user2
-**Password:** 321
+Username: user2 
+Password: 321
+```
 
 Both users will be inserted into database after first time use of this app.
 
@@ -63,7 +64,7 @@ List of all commands avaliable for bot interaction:
 
 *{CODE}* is the stock market share code like: **AMZN.US** or **AAPL.US**
 
-The bot will write - just for you - the value of the stock market share after last day close!
+The bot will write the value of the stock market share after last day close! All bot responses will not storage in the database
 
 ## Technical Approach
 
