@@ -66,7 +66,7 @@ List of all commands avaliable for bot interaction:
 
 The bot will write the value of the stock market share after last day close! All bot responses will not storage in the database
 
-## Technical Approach
+## Technologies
 
 ### Docker & MongoDB ###
 NoSQL Database to store users and messages running in a docker for easy cloud deploy
