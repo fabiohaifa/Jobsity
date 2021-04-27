@@ -18,7 +18,7 @@ Docker - run with elevated previleges:
 apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io
 ```
-For more information: https://docs.docker.com/engine/install/
+*For more information: https://docs.docker.com/engine/install/*
 
 MongoDB - Docker image:
 ```bash
@@ -26,6 +26,7 @@ docker pull mongo
 docker run --name mongodb -d -p 27017:27017 mongo --noauth --bind_ip=0.0.0.0
 docker start mongodb
 ```
+*MongoDB must be running and respond at localhost:27017*
 
 Install all Project Dependencies:
 ```bash
