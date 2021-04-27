@@ -23,7 +23,7 @@ For more information: https://docs.docker.com/engine/install/
 MongoDB - Docker image:
 ```bash
 docker pull mongo
-docker run --name database -d -p 27017:27017 mongo --noauth --bind_ip=0.0.0.0
+docker run --name mongodb -d -p 27017:27017 mongo --noauth --bind_ip=0.0.0.0
 docker start mongodb
 ```
 
