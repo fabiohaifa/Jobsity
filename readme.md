@@ -92,4 +92,4 @@ Passport for authentication and BCrypt for hash encryption of user's password
 Use only for Jobsity challenge purpouses.
 
 ## Author
-Fabio Pirani de Padua (https://www.linkedin.com/in/fabio-pirani-b129539/)
+[Fabio Pirani de Padua](https://www.linkedin.com/in/fabio-pirani-b129539/)
