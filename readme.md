@@ -64,7 +64,7 @@ List of all commands avaliable for bot interaction:
 */stock={CODE}*
 > *{CODE}* is the stock market share code like: **AMZN.US** or **AAPL.US**
 
-The bot will write the value of the stock market share after reading this information for external tool. All bot responses will not be storage in the database.
+The bot will write the value of the stock market share after reading this information from an external tool. All bot responses will not be storage in the database.
 
 ## Technologies
 
