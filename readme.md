@@ -26,7 +26,7 @@ docker pull mongo
 docker run --name mongodb -d -p 27017:27017 mongo --noauth --bind_ip=0.0.0.0
 docker start mongodb
 ```
-*MongoDB must be running and respond at localhost:27017*
+*MongoDB must be running and listening at localhost:27017*
 
 ### Install Project Dependencies:
 ```bash
