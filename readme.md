@@ -1,8 +1,6 @@
-# Jobsity NodeJS Challenge
+# Chat-Bot Stock Marcket NodeJS Challenge
 
-This is a project only for Jobsity challenge purpouses. Do not copy/paste it!
-
-![Badge](https://img.shields.io/badge/Jobsity-Challenge-%237159c1?style=for-the-badge&logo=ghost)
+This is a project only for challenge purpouses. Do not copy/paste it!
 
 ## Installation
 
@@ -89,7 +87,7 @@ Passport for authentication and BCrypt for hash encryption of user's password
 > [BCrypt](http://www.passportjs.org/)
 
 ## License
-Use only for Jobsity challenge purpouses.
+Use only for challenges purpouses.
 
 ## Author
-[Fabio Pirani de Padua](https://www.linkedin.com/in/fabio-pirani-b129539/)
+[Fabio Pirani de Padua](https://www.linkedin.com/in/fabio-pirani/)
